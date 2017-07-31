@@ -12,7 +12,7 @@ namespace AmdAdmin.Controllers
         {
             return View("index");
         }
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         [System.Web.Mvc.HttpPost]
         public ActionResult Login([FromBody]AdminUser user)
         {
