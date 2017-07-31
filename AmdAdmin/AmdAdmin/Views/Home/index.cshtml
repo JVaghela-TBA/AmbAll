@@ -8,18 +8,20 @@
     </div>
     <div class="row">
         <div class="col-md-4">
-            <form method="post" action="http://localhost:53423/Home/login">
+            @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
                 <div class="form-group">
-                    <label for="email">Username</label>
-                    <input type="text" class="form-control" id="email" placeholder="Username" name="username">
+                    @Html.Label("username", "Username")
+                    @Html.TextBox("username", null, new { @class = "form-control", placeholder = "Username" })
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                    @Html.Label("email", "Username")
+                    @Html.TextBox("password", null, new { @class = "form-control", placeholder = "Username", type = "password" })
                 </div>
                 <button type="submit" class="btn btn-success">Submit</button>
-                <button type="reset" class="btn btn-danger">Clear</button>
-            </form>
+                <button type="reset" class="btn btn-danger">Clear</button>              
+            }
         </div>
     </div>
 </div>
